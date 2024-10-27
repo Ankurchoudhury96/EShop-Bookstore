@@ -1,0 +1,28 @@
+﻿@model IEnumerable<EShop.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-2">
+                <div class="product-card text-center">
+                    <img src="~/Uploadpic/@product.Ppic" height="140" width="140">
+                    <h5>@product.Name</h5>
+                    <p>Price: Rs.@product.Price/-</p>
+                    <p>Category: @product.Category</p>
+                    <div class="buttons">
+                        <a asp-action="Userorder" asp-route-id="@product.Pid" class="btn btn-success btn-sm">Add to Cart</a>
+                        <a asp-action="Details" asp-route-id="@product.Pid" class="btn btn-info btn-sm">Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

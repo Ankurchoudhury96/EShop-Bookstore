@@ -1,0 +1,34 @@
+﻿@model EShop.Models.Adminlogin
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1 class="row d-flex align-content-center justify-content-center">Login</h1>
+
+<h4 class="row d-flex align-content-center justify-content-center">Adminlogin</h4>
+<hr />
+<div class="row d-flex align-content-center justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdminEmail" class="control-label"></label>
+                <input asp-for="AdminEmail" class="form-control" />
+                <span asp-validation-for="AdminEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex align-content-end justify-content-center">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
